@@ -3,7 +3,7 @@ from app.models.schemas import ChatRequest, ChatResponse
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
-@router.post("/", response_model=ChatResponse)
+@router.post("/", response_model=ChatResponse) 
 def chat_endpoint(request: ChatRequest):
     # For now, mock a response (we'll connect to Mistral later)
     return ChatResponse(
