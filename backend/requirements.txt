@@ -3,3 +3,12 @@ uvicorn
 pydantic
 pytest
 httpx
+fastapi
+uvicorn
+pydantic
+pytest
+httpx
+python-jose[cryptography]
+python-multipart
+mistralai==0.4.2
+python-dotenv

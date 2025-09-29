@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Configuration optimisée pour Docker
+  experimental: {
+    // Optimisations pour la production
+  },
 };
 
 export default nextConfig;

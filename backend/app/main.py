@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import chat
+from app.routers import chat, auth
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -18,9 +18,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# include chat router
+# include routers
 app.include_router(chat.router)
+app.include_router(auth.router)
 
 @app.get("/") # we create our running app using FastAPI
 def root():# we define a root endpoint 
     return {"message": "Backend is running 🚀"}
+

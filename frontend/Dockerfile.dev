@@ -1,0 +1,20 @@
+FROM node:18-alpine
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier package.json et package-lock.json
+COPY package.json package-lock.json* ./
+
+# Installer les dépendances
+RUN npm ci
+
+# Exposer le port
+EXPOSE 3000
+
+# Variables d'environnement
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Commande pour démarrer en mode développement (sans build nécessaire)
+CMD ["npm", "run", "dev", "--", "--hostname", "0.0.0.0"]

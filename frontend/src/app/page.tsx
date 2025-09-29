@@ -1,9 +1,5 @@
-import Chat from "../../components/Chat";
+import App from "../../components/App";
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-gray-50 p-6">
-      <Chat />
-    </main>
-  );
+  return <App />;
 }

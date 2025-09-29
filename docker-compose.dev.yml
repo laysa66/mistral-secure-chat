@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # Backend FastAPI (Development)
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: mistral-backend-dev
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Monter le code source pour hot-reload en développement
+      - ./backend:/app
+    networks:
+      - mistral-network
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  # Frontend Next.js (Development)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: mistral-frontend-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+    depends_on:
+      - backend
+    volumes:
+      # Monter le code source pour hot-reload en développement
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - mistral-network
+    command: ["npm", "run", "dev"]
+
+# Réseau personnalisé
+networks:
+  mistral-network:
+    driver: bridge

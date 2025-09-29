@@ -1,0 +1,37 @@
+# Ignorer les fichiers/dossiers qui ne doivent pas être dans l'image Docker
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.git
+.gitignore
+README.md
+.env
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers de test
+tests/
+test_*.py
+*_test.py
+
+# Documentation
+docs/
+*.md
+
+# Logs
+*.log
+logs/
+
+# Fichiers temporaires
+.tmp/
+tmp/

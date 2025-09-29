@@ -1,0 +1,44 @@
+# Dépendances
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Fichiers de développement 
+# Note: On retire .next/ du dockerignore car on en a besoin après le build
+out/
+build/
+
+# Fichiers d'environnement
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Fichiers de test
+coverage/
+.nyc_output/
+**/*.test.js
+**/*.test.jsx
+**/*.test.ts
+**/*.test.tsx
+__tests__/
+
+# Fichiers Git et IDE
+.git
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers OS
+.DS_Store
+Thumbs.db
